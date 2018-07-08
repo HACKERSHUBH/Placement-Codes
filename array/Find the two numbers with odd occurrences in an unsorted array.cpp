@@ -1,4 +1,3 @@
-// same as finding the numbers which is non repeating in the array of repeating numbers
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -28,7 +27,7 @@ int main()
   
     
     for(it=m.begin();it!=m.end();it++)
-   {
+    {
     //cout<<it->first<< " "<<it->second<<endl;
     if(it->second%2!=0)
     cout<<it->first<<"\t";
