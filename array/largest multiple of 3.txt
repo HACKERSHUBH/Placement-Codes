@@ -1,0 +1,23 @@
+#Algorithm for finding the largest multiple of 3
+1. Sort the array in non-decreasing order.
+
+2. Take three queues. 
+One for storing elements which on dividing by 3 gives remainder as 0.
+The second queue stores digits which on dividing by 3 gives remainder as 1. 
+The third queue stores digits which on dividing by 3 gives remainder as 2. 
+(Call them as queue0, queue1 and queue2)
+
+3. Find the sum of all the digits.
+
+4. Three cases arise:
+  4.1 The sum of digits is divisible by 3. Dequeue all the digits from the three queues. Sort them in non-increasing order. Output the array.
+
+  4.2 The sum of digits produces remainder 1 when divided by 3.
+Remove one item from queue1. If queue1 is empty, remove two items from queue2. If queue2 contains less than two items, the number is not possible.
+
+  4.3 The sum of digits produces remainder 2 when divided by 3.
+Remove one item from queue2. If queue2 is empty, remove two items from queue1. If queue1 contains less than two items, the number is not possible.
+
+5. Finally empty all the queues into an auxiliary array. Sort the auxiliary array in non-increasing order. Output the auxiliary array.
+
+Based on the above, below is C implementation:

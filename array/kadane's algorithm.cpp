@@ -76,4 +76,94 @@ int main()
 	return 0;
 }
 
+
+another approach
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int kadane(int arr[],int n)
+{
+	int curr_max,max_ans;
+	curr_max = max_ans = arr[0];
+	for(int i=1;i<n;i++)
+	{
+		curr_max = max(arr[i], curr_max + arr[i]);
+		max_ans = max(max_ans,curr_max);
+	}
+	return max_ans;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+	int n,ans;
+	cin>>n;
+	int a[n];
+	for(int i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	ans = kadane(a,n);
+	cout<<ans<<"\n";
+    }
+	return 0;
+}
+
+
+// also finding index of maximum sum subarray
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    int n,i,k;
+    cin>>n;
+    int a[n];
+    for(i=0;i<n;i++)
+    cin>>a[i];
+    int max_so_far = 0, cur_max = 0, temp=0;
+	
+
+	for (int i=0; i< n; i++ )
+	{
+		cur_max += a[i];
+
+		if (max_so_far < cur_max)
+		{
+			max_so_far = cur_max;
+            temp=i;
+			
+		}
+
+		if (cur_max < 0)
+		{
+			cur_max = 0;
+		}
+	}
+     cout<<temp<<" ";
+     int sum=0;
+     for(i=temp;;i--)
+      {
+        sum=sum+a[i];
+        if(sum==max_so_far)
+        {
+          k=i;
+          break;
+            }
+      }
+    cout<<k<<endl;
+    }
+   	return 0;
+}
+
+
 */
